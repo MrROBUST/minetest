@@ -4,5 +4,7 @@ pr:
 pool: Default
 
 steps:
-- script: echo ${{ variables }}
-  displayName: 'variables'
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: 'gci env:* | sort-object name | Format-Table -Property name,value -AutoSize'
