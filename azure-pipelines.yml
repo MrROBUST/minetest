@@ -21,3 +21,21 @@ steps:
     platform: 'x64'
     configuration: 'Release'
     maximumCpuCount: true
+
+- script: |
+    md .\PVSTestResults
+    PVS-Studio_Cmd -t .\build\minetest.sln
+      -E ZERO_CHECK;ALL_BUILD
+      -o .\PVSTestResults\minetest.plog
+      -c Release
+      -p x64
+    PlogConverter
+      -t html
+      -o .\PVSTestResults\
+      .\PVSTestResults\minetest.plog
+  displayName: 'PVS-Studio analyze'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: PVSTestResults
+    artifactName: PVSTestResults
