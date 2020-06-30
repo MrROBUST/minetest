@@ -13,7 +13,7 @@ steps:
   displayName: 'Install dependencies'
 - task: CMake@1
   inputs:
-    cmakeArgs: '-A x64 -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_GETTEXT=0 -DENABLE_CURSES=0'
+    cmakeArgs: '-A x64 -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_GETTEXT=0 -DENABLE_CURSES=0 ..'
 - task: MSBuild@1
   inputs:
     solution: '**/*.sln'
