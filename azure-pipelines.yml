@@ -11,16 +11,18 @@ pool: Default
 steps:
 - script: vcpkg install irrlicht zlib curl[winssl] openal-soft libvorbis libogg sqlite3 freetype luajit
   displayName: 'Install dependencies'
+
 - task: CMake@1
   inputs:
     cmakeArgs: '-A x64 -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_GETTEXT=0 -DENABLE_CURSES=0 ..'
-- task: MSBuild@1
-  inputs:
-    solution: '**/*.sln'
-    msbuildArchitecture: 'x64'
-    platform: 'x64'
-    configuration: 'Release'
-    maximumCpuCount: true
+
+#- task: MSBuild@1
+#  inputs:
+#    solution: '**/*.sln'
+#    msbuildArchitecture: 'x64'
+#    platform: 'x64'
+#    configuration: 'Release'
+#    maximumCpuCount: true
 
 - script: |
     md .\PVSTestResults
@@ -28,8 +30,8 @@ steps:
       -E ZERO_CHECK;ALL_BUILD `
       -o .\PVSTestResults\minetest.plog `
       -c Release `
-      -p x64 `
-    PlogConverter
+      -p x64
+    PlogConverter `
       -t html `
       -o .\PVSTestResults\ `
       .\PVSTestResults\minetest.plog
