@@ -3,8 +3,8 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- master
+#trigger:
+#- master
 
 pool: Default
 
@@ -34,6 +34,7 @@ steps:
       -o .\PVSTestResults\ `
       .\PVSTestResults\minetest.plog
   displayName: 'PVS-Studio analyze'
+  continueOnError: true
 
 - task: PublishBuildArtifacts@1
   inputs:
