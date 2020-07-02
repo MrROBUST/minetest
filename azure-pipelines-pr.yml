@@ -13,6 +13,6 @@ steps:
   displayName: 'diffs'
 
 - script: |
-    %SYSTEM_PULLREQUEST_SOURCECOMMITID%
+    set
     git diff --name-only HEAD %SYSTEM_PULLREQUEST_SOURCECOMMITID%
   displayName: 'pr diffs'
