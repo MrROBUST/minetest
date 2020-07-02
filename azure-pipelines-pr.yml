@@ -18,5 +18,6 @@ steps:
 
 - script: |
     set
+    echo
     git diff --name-only origin/%SYSTEM_PULLREQUEST_TARGETBRANCH%
   displayName: 'pr diffs'
