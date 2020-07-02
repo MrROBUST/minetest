@@ -12,5 +12,7 @@ steps:
 - script: git diff --name-only HEAD^^ HEAD
   displayName: 'diffs'
 
-- script: git diff --name-only HEAD %SYSTEM_PULLREQUEST_SOURCECOMMITID%
+- script: |
+  echo %SYSTEM_PULLREQUEST_SOURCECOMMITID%
+  git diff --name-only HEAD %SYSTEM_PULLREQUEST_SOURCECOMMITID%
   displayName: 'pr diffs'
