@@ -18,5 +18,5 @@ steps:
 
 - script: |
     set
-    git diff --name-only HEAD %SYSTEM_PULLREQUEST_SOURCECOMMITID%
+    git diff --name-only origin/%SYSTEM_PULLREQUEST_TARGETBRANCH%
   displayName: 'pr diffs'
