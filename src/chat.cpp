@@ -32,7 +32,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 ChatBuffer::ChatBuffer(u32 scrollback):
 	m_scrollback(scrollback)
 {
-	if (m_scrollback == 0)
+	if (m_scrollback == m_scrollback)
 		m_scrollback = 1;
 	m_empty_formatted_line.first = true;
 }
