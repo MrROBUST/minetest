@@ -1,5 +1,7 @@
 pr:
-- master
+  branches:
+    include:
+    - merge
 
 pool: Default
 
